@@ -1,6 +1,7 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
+    initParticles();
     initMobileMenu();
     initSmoothScrolling();
     initScrollAnimations();
@@ -8,7 +9,223 @@ document.addEventListener('DOMContentLoaded', function() {
     initTypingEffect();
     initParallaxEffect();
     initSkillBars();
+    initMouseTrail();
+    initThemeToggle();
+    initHorizontalScroll();
+    initFloatingElements();
 });
+
+// Particles.js Configuration
+function initParticles() {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#06b6d4'
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    }
+                },
+                opacity: {
+                    value: 0.3,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#06b6d4',
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    }
+}
+
+// Mouse Trail Effect
+function initMouseTrail() {
+    const trail = [];
+    const trailLength = 20;
+
+    document.addEventListener('mousemove', function(e) {
+        const dot = document.createElement('div');
+        dot.className = 'mouse-trail';
+        dot.style.left = e.pageX + 'px';
+        dot.style.top = e.pageY + 'px';
+        document.body.appendChild(dot);
+
+        trail.push(dot);
+
+        if (trail.length > trailLength) {
+            const oldDot = trail.shift();
+            oldDot.remove();
+        }
+
+        // Animate trail
+        trail.forEach((dot, index) => {
+            const opacity = (index / trailLength) * 0.5;
+            const scale = (index / trailLength) * 0.5 + 0.5;
+            dot.style.opacity = opacity;
+            dot.style.transform = `scale(${scale})`;
+        });
+    });
+}
+
+// Theme Toggle
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const icon = themeToggle.querySelector('i');
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light-theme');
+        icon.className = 'fas fa-sun';
+    }
+
+    themeToggle.addEventListener('click', function() {
+        body.classList.toggle('light-theme');
+        
+        if (body.classList.contains('light-theme')) {
+            icon.className = 'fas fa-sun';
+            localStorage.setItem('theme', 'light');
+        } else {
+            icon.className = 'fas fa-moon';
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+}
+
+// Horizontal Scroll for Projects
+function initHorizontalScroll() {
+    const container = document.querySelector('.horizontal-scroll-container');
+    if (!container) return;
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    container.addEventListener('mousedown', (e) => {
+        isDown = true;
+        container.style.cursor = 'grabbing';
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener('mouseleave', () => {
+        isDown = false;
+        container.style.cursor = 'grab';
+    });
+
+    container.addEventListener('mouseup', () => {
+        isDown = false;
+        container.style.cursor = 'grab';
+    });
+
+    container.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 2;
+        container.scrollLeft = scrollLeft - walk;
+    });
+
+    // Mouse wheel horizontal scroll
+    container.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        container.scrollLeft += e.deltaY;
+    });
+}
+
+// Floating Elements Animation
+function initFloatingElements() {
+    const floatingElements = document.querySelectorAll('.floating');
+    floatingElements.forEach((element, index) => {
+        element.style.animationDelay = `${index * 0.5}s`;
+    });
+}
 
 // Mobile Menu Toggle
 function initMobileMenu() {
@@ -19,6 +236,10 @@ function initMobileMenu() {
     if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener('click', function() {
             mobileMenu.classList.toggle('hidden');
+            // Add glassmorphism effect
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.style.animation = 'slideDown 0.3s ease-out';
+            }
         });
 
         // Close mobile menu when clicking on a link
@@ -49,7 +270,7 @@ function initSmoothScrolling() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                const offsetTop = targetSection.offsetTop - 80;
                 
                 window.scrollTo({
                     top: offsetTop,
@@ -60,7 +281,7 @@ function initSmoothScrolling() {
     });
 }
 
-// Scroll Animations
+// Enhanced Scroll Animations
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
@@ -71,25 +292,35 @@ function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate');
+                
+                // Add glow effect on scroll
+                if (entry.target.classList.contains('glass-card')) {
+                    entry.target.classList.add('glow');
+                    setTimeout(() => {
+                        entry.target.classList.remove('glow');
+                    }, 2000);
+                }
             }
         });
     }, observerOptions);
 
     // Observe elements for scroll animations
-    const animatedElements = document.querySelectorAll('.scroll-animate, .timeline-item, .project-card, .skill-category');
+    const animatedElements = document.querySelectorAll('.scroll-animate, .timeline-item, .project-card, .skill-category, .glass-card');
     animatedElements.forEach(el => {
         observer.observe(el);
     });
 
-    // Navbar background on scroll
+    // Enhanced navbar background on scroll
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('nav');
-        if (window.scrollY > 50) {
-            navbar.classList.add('bg-white/95');
-            navbar.classList.remove('bg-white/90');
+        const scrolled = window.scrollY;
+        
+        if (scrolled > 50) {
+            navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+            navbar.style.backdropFilter = 'blur(20px)';
         } else {
-            navbar.classList.remove('bg-white/95');
-            navbar.classList.add('bg-white/90');
+            navbar.style.background = 'rgba(15, 23, 42, 0.8)';
+            navbar.style.backdropFilter = 'blur(16px)';
         }
     });
 }
@@ -120,9 +351,18 @@ function initContactForm() {
                 return;
             }
             
-            // Simulate form submission
-            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-            this.reset();
+            // Simulate form submission with loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
         });
     }
 }
@@ -133,7 +373,7 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-// Notification system
+// Enhanced Notification system
 function showNotification(message, type = 'info') {
     // Remove existing notifications
     const existingNotification = document.querySelector('.notification');
@@ -143,12 +383,18 @@ function showNotification(message, type = 'info') {
     
     // Create notification element
     const notification = document.createElement('div');
-    notification.className = `notification fixed top-20 right-4 z-50 p-4 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 ${
-        type === 'success' ? 'bg-green-500 text-white' :
-        type === 'error' ? 'bg-red-500 text-white' :
-        'bg-blue-500 text-white'
+    notification.className = `notification fixed top-20 right-4 z-50 p-6 rounded-2xl shadow-2xl transform translate-x-full transition-all duration-500 backdrop-blur-xl ${
+        type === 'success' ? 'bg-emerald-500/90 text-white border border-emerald-400/50' :
+        type === 'error' ? 'bg-red-500/90 text-white border border-red-400/50' :
+        'bg-cyan-500/90 text-white border border-cyan-400/50'
     }`;
-    notification.textContent = message;
+    
+    notification.innerHTML = `
+        <div class="flex items-center">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'} mr-3"></i>
+            <span>${message}</span>
+        </div>
+    `;
     
     // Add to DOM
     document.body.appendChild(notification);
@@ -163,11 +409,11 @@ function showNotification(message, type = 'info') {
         notification.classList.add('translate-x-full');
         setTimeout(() => {
             notification.remove();
-        }, 300);
+        }, 500);
     }, 5000);
 }
 
-// Typing Effect for Hero Section
+// Enhanced Typing Effect for Hero Section
 function initTypingEffect() {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
@@ -188,20 +434,28 @@ function initTypingEffect() {
     }
 }
 
-// Parallax Effect for Hero Section
+// Enhanced Parallax Effect
 function initParallaxEffect() {
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
         const heroSection = document.querySelector('#home');
+        const blobs = document.querySelectorAll('.blob');
         
         if (heroSection) {
             const rate = scrolled * -0.5;
             heroSection.style.transform = `translateY(${rate}px)`;
         }
+        
+        // Parallax effect for blobs
+        blobs.forEach((blob, index) => {
+            const speed = 0.1 + (index * 0.05);
+            const yPos = -(scrolled * speed);
+            blob.style.transform = `translateY(${yPos}px) rotate(${scrolled * 0.1}deg)`;
+        });
     });
 }
 
-// Animate Skill Bars
+// Enhanced Skill Bars Animation
 function initSkillBars() {
     const skillBars = document.querySelectorAll('.skill-progress');
     
@@ -214,6 +468,7 @@ function initSkillBars() {
                 
                 setTimeout(() => {
                     progressBar.style.width = width;
+                    progressBar.style.animation = 'skillProgress 1.5s ease-out forwards';
                 }, 200);
             }
         });
@@ -241,12 +496,12 @@ function updateActiveNavLink() {
     });
     
     navLinks.forEach(link => {
-        link.classList.remove('text-blue-600');
-        link.classList.add('text-gray-600');
+        link.classList.remove('text-cyan-400');
+        link.classList.add('text-slate-300');
         
         if (link.getAttribute('href') === `#${current}`) {
-            link.classList.remove('text-gray-600');
-            link.classList.add('text-blue-600');
+            link.classList.remove('text-slate-300');
+            link.classList.add('text-cyan-400');
         }
     });
 }
@@ -254,18 +509,7 @@ function updateActiveNavLink() {
 // Update active nav link on scroll
 window.addEventListener('scroll', updateActiveNavLink);
 
-// Preloader
-window.addEventListener('load', function() {
-    const preloader = document.querySelector('.loading');
-    if (preloader) {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 300);
-    }
-});
-
-// Copy to clipboard functionality
+// Enhanced Copy to clipboard functionality
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(function() {
         showNotification('Copied to clipboard!', 'success');
@@ -289,22 +533,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Project card hover effects
+// Enhanced Project card hover effects
 document.addEventListener('DOMContentLoaded', function() {
     const projectCards = document.querySelectorAll('.project-card');
     
     projectCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-10px) scale(1.02)';
+            this.classList.add('glow');
         });
         
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
+            this.classList.remove('glow');
         });
     });
 });
 
-// Smooth reveal animations for timeline
+// Enhanced timeline animations
 function revealTimelineItems() {
     const timelineItems = document.querySelectorAll('.timeline-item');
     
@@ -313,6 +559,12 @@ function revealTimelineItems() {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
+                
+                // Add staggered animation for timeline dots
+                const dot = entry.target.querySelector('::before');
+                if (dot) {
+                    dot.style.animation = 'pulse 2s infinite';
+                }
             }
         });
     }, { threshold: 0.3 });
@@ -325,31 +577,11 @@ function revealTimelineItems() {
 // Initialize timeline animations
 document.addEventListener('DOMContentLoaded', revealTimelineItems);
 
-// Add loading animation to buttons
-document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
-    
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            if (this.type !== 'submit') {
-                const originalText = this.innerHTML;
-                this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Loading...';
-                this.disabled = true;
-                
-                setTimeout(() => {
-                    this.innerHTML = originalText;
-                    this.disabled = false;
-                }, 2000);
-            }
-        });
-    });
-});
-
 // Add scroll to top functionality
 function addScrollToTop() {
     const scrollToTopBtn = document.createElement('button');
     scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    scrollToTopBtn.className = 'fixed bottom-8 right-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 z-40 opacity-0 pointer-events-none';
+    scrollToTopBtn.className = 'fixed bottom-8 right-8 bg-gradient-to-r from-cyan-400 to-emerald-400 text-slate-900 p-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300 z-40 opacity-0 pointer-events-none backdrop-blur-sm';
     scrollToTopBtn.id = 'scroll-to-top';
     
     document.body.appendChild(scrollToTopBtn);
@@ -373,4 +605,47 @@ function addScrollToTop() {
 }
 
 // Initialize scroll to top
-document.addEventListener('DOMContentLoaded', addScrollToTop); 
+document.addEventListener('DOMContentLoaded', addScrollToTop);
+
+// Add CSS animations
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes skillProgress {
+        from {
+            transform: scaleX(0);
+        }
+        to {
+            transform: scaleX(1);
+        }
+    }
+    
+    .light-theme {
+        background: #f8fafc !important;
+        color: #1e293b !important;
+    }
+    
+    .light-theme .glass-card {
+        background: rgba(255, 255, 255, 0.3) !important;
+        border-color: rgba(6, 182, 212, 0.3) !important;
+    }
+    
+    .light-theme .nav-link {
+        color: #475569 !important;
+    }
+    
+    .light-theme .nav-link:hover {
+        color: #06b6d4 !important;
+    }
+`;
+document.head.appendChild(style); 

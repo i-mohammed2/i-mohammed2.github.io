@@ -7,70 +7,79 @@
     <meta name="description" content="[NAME] - [TITLE] | [BRIEF_DESCRIPTION]">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-50 font-inter">
+<body class="bg-slate-900 font-inter text-white overflow-x-hidden">
+    <!-- Dynamic Background Elements -->
+    <div id="particles-js" class="fixed inset-0 z-0"></div>
+    <div class="gradient-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-xl border-b border-slate-700/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0">
-                    <h1 class="text-xl font-bold text-gray-900">[NAME]</h1>
+                    <h1 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">[NAME]</h1>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home" class="nav-link">Home</a>
-                        <a href="#about" class="nav-link">About</a>
-                        <a href="#experience" class="nav-link">Experience</a>
-                        <a href="#projects" class="nav-link">Projects</a>
-                        <a href="#skills" class="nav-link">Skills</a>
-                        <a href="#contact" class="nav-link">Contact</a>
-                    </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <button id="theme-toggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900">
+                    <button id="mobile-menu-button" class="text-slate-300 hover:text-white">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800/95 backdrop-blur-xl border-t border-slate-700/50">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="#home" class="mobile-nav-link">Home</a>
                 <a href="#about" class="mobile-nav-link">About</a>
                 <a href="#experience" class="mobile-nav-link">Experience</a>
                 <a href="#projects" class="mobile-nav-link">Projects</a>
-                <a href="#skills" class="mobile-nav-link">Skills</a>
                 <a href="#contact" class="mobile-nav-link">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section id="home" class="min-h-screen flex items-center justify-center relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div class="hero-content">
-                <div class="mb-8">
-                    <div class="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white text-4xl font-bold shadow-lg">
-                        [INITIALS]
+                <div class="mb-12">
+                    <div class="w-40 h-40 mx-auto mb-8 rounded-full bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-400 p-1 animate-pulse">
+                        <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center">
+                            <span class="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">[INITIALS]</span>
+                        </div>
                     </div>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 hero-title">
-                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">[NAME]</span>
+                <h1 class="text-6xl md:text-8xl font-bold mb-6 hero-title">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-400">[NAME]</span>
                 </h1>
-                <h2 class="text-2xl md:text-3xl text-gray-600 mb-8 hero-subtitle">[TITLE]</h2>
-                <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto hero-description">
+                <h2 class="text-2xl md:text-3xl text-slate-300 mb-8 hero-subtitle">[TITLE]</h2>
+                <p class="text-xl text-slate-400 mb-12 max-w-3xl mx-auto hero-description leading-relaxed">
                     [BRIEF_DESCRIPTION]
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
                     <a href="#projects" class="btn-primary">
-                        <i class="fas fa-code mr-2"></i>
+                        <i class="fas fa-code mr-3"></i>
                         View My Work
                     </a>
                     <a href="#contact" class="btn-secondary">
-                        <i class="fas fa-envelope mr-2"></i>
+                        <i class="fas fa-envelope mr-3"></i>
                         Get In Touch
                     </a>
                 </div>
@@ -78,51 +87,50 @@
         </div>
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
             <div class="scroll-indicator">
-                <i class="fas fa-chevron-down text-gray-400 animate-bounce"></i>
+                <i class="fas fa-chevron-down text-cyan-400 animate-bounce"></i>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <!-- About Section - Asymmetrical Layout -->
+    <section id="about" class="py-32 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4 section-title">About Me</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="about-content">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">[ABOUT_HEADING]</h3>
-                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                        [ABOUT_PARAGRAPH_1]
-                    </p>
-                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                        [ABOUT_PARAGRAPH_2]
-                    </p>
-                    <div class="flex flex-wrap gap-4 mt-8">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <!-- Left Column - Text Content -->
+                <div class="lg:col-span-7 about-content">
+                    <h2 class="text-5xl font-bold mb-8 section-title">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">About</span>
+                        <br>Me
+                    </h2>
+                    <div class="space-y-6 text-lg text-slate-300 leading-relaxed">
+                        <p>[ABOUT_PARAGRAPH_1]</p>
+                        <p>[ABOUT_PARAGRAPH_2]</p>
+                    </div>
+                    <div class="flex flex-wrap gap-8 mt-12">
                         <div class="stat-item">
-                            <div class="text-3xl font-bold text-blue-600">[YEARS_EXPERIENCE]+</div>
-                            <div class="text-gray-600">Years Experience</div>
+                            <div class="text-4xl font-bold text-cyan-400">[YEARS_EXPERIENCE]+</div>
+                            <div class="text-slate-400">Years Experience</div>
                         </div>
                         <div class="stat-item">
-                            <div class="text-3xl font-bold text-purple-600">[PROJECTS_COUNT]+</div>
-                            <div class="text-gray-600">Projects Completed</div>
+                            <div class="text-4xl font-bold text-emerald-400">[PROJECTS_COUNT]+</div>
+                            <div class="text-slate-400">Projects Completed</div>
                         </div>
                         <div class="stat-item">
-                            <div class="text-3xl font-bold text-green-600">[COMPANIES_COUNT]+</div>
-                            <div class="text-gray-600">Companies Worked</div>
+                            <div class="text-4xl font-bold text-cyan-400">[COMPANIES_COUNT]+</div>
+                            <div class="text-slate-400">Companies Worked</div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="relative">
-                        <div class="w-full h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center">
+                <!-- Right Column - Visual Element -->
+                <div class="lg:col-span-5 about-visual">
+                    <div class="glass-card p-8 rounded-3xl">
+                        <div class="w-full h-80 bg-gradient-to-br from-cyan-400/20 to-emerald-400/20 rounded-2xl flex items-center justify-center border border-cyan-400/30">
                             <div class="text-center">
-                                <i class="fas fa-user-circle text-8xl text-gray-400 mb-4"></i>
-                                <p class="text-gray-600">[PROFILE_IMAGE_PLACEHOLDER]</p>
+                                <i class="fas fa-user-circle text-8xl text-cyan-400/50 mb-4"></i>
+                                <p class="text-slate-400">[PROFILE_IMAGE_PLACEHOLDER]</p>
                             </div>
                         </div>
-                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full flex items-center justify-center text-slate-900 text-2xl font-bold shadow-2xl">
                             [YEARS_EXPERIENCE]
                         </div>
                     </div>
@@ -131,156 +139,163 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-gray-50">
+    <!-- Experience Section - Timeline with Glassmorphism -->
+    <section id="experience" class="py-32 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4 section-title">Experience</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold mb-4 section-title">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">Experience</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-emerald-400 mx-auto"></div>
             </div>
-            <div class="timeline">
+            <div class="timeline-container">
                 <!-- Experience Item 1 -->
                 <div class="timeline-item">
-                    <div class="timeline-content">
+                    <div class="timeline-content glass-card">
                         <div class="timeline-header">
-                            <h3 class="text-xl font-semibold text-gray-900">[JOB_TITLE_1]</h3>
-                            <span class="text-blue-600 font-medium">[COMPANY_1]</span>
+                            <h3 class="text-2xl font-semibold text-white">[JOB_TITLE_1]</h3>
+                            <span class="text-cyan-400 font-medium">[COMPANY_1]</span>
                         </div>
-                        <div class="timeline-date">[DATE_RANGE_1]</div>
-                        <p class="text-gray-600 mt-4">[JOB_DESCRIPTION_1]</p>
-                        <div class="mt-4">
-                            <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">[TECH_1]</span>
-                            <span class="inline-block bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">[TECH_2]</span>
-                            <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">[TECH_3]</span>
+                        <div class="timeline-date text-slate-400">[DATE_RANGE_1]</div>
+                        <p class="text-slate-300 mt-4 leading-relaxed">[JOB_DESCRIPTION_1]</p>
+                        <div class="mt-6">
+                            <span class="tech-tag">[TECH_1]</span>
+                            <span class="tech-tag">[TECH_2]</span>
+                            <span class="tech-tag">[TECH_3]</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Experience Item 2 -->
                 <div class="timeline-item">
-                    <div class="timeline-content">
+                    <div class="timeline-content glass-card">
                         <div class="timeline-header">
-                            <h3 class="text-xl font-semibold text-gray-900">[JOB_TITLE_2]</h3>
-                            <span class="text-blue-600 font-medium">[COMPANY_2]</span>
+                            <h3 class="text-2xl font-semibold text-white">[JOB_TITLE_2]</h3>
+                            <span class="text-cyan-400 font-medium">[COMPANY_2]</span>
                         </div>
-                        <div class="timeline-date">[DATE_RANGE_2]</div>
-                        <p class="text-gray-600 mt-4">[JOB_DESCRIPTION_2]</p>
-                        <div class="mt-4">
-                            <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">[TECH_4]</span>
-                            <span class="inline-block bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">[TECH_5]</span>
-                            <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">[TECH_6]</span>
+                        <div class="timeline-date text-slate-400">[DATE_RANGE_2]</div>
+                        <p class="text-slate-300 mt-4 leading-relaxed">[JOB_DESCRIPTION_2]</p>
+                        <div class="mt-6">
+                            <span class="tech-tag">[TECH_4]</span>
+                            <span class="tech-tag">[TECH_5]</span>
+                            <span class="tech-tag">[TECH_6]</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Experience Item 3 -->
                 <div class="timeline-item">
-                    <div class="timeline-content">
+                    <div class="timeline-content glass-card">
                         <div class="timeline-header">
-                            <h3 class="text-xl font-semibold text-gray-900">[JOB_TITLE_3]</h3>
-                            <span class="text-blue-600 font-medium">[COMPANY_3]</span>
+                            <h3 class="text-2xl font-semibold text-white">[JOB_TITLE_3]</h3>
+                            <span class="text-cyan-400 font-medium">[COMPANY_3]</span>
                         </div>
-                        <div class="timeline-date">[DATE_RANGE_3]</div>
-                        <p class="text-gray-600 mt-4">[JOB_DESCRIPTION_3]</p>
-                        <div class="mt-4">
-                            <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">[TECH_7]</span>
-                            <span class="inline-block bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">[TECH_8]</span>
-                            <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">[TECH_9]</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4 section-title">Featured Projects</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="w-full h-48 bg-gradient-to-br from-blue-100 to-purple-100 rounded-t-lg flex items-center justify-center">
-                            <i class="fas fa-laptop-code text-4xl text-gray-400"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">[PROJECT_NAME_1]</h3>
-                        <p class="text-gray-600 mb-4">[PROJECT_DESCRIPTION_1]</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag">[TECH_1]</span>
-                            <span class="tech-tag">[TECH_2]</span>
-                            <span class="tech-tag">[TECH_3]</span>
-                        </div>
-                        <div class="flex gap-3">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt mr-2"></i>
-                                Live Demo
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github mr-2"></i>
-                                Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="w-full h-48 bg-gradient-to-br from-green-100 to-blue-100 rounded-t-lg flex items-center justify-center">
-                            <i class="fas fa-mobile-alt text-4xl text-gray-400"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">[PROJECT_NAME_2]</h3>
-                        <p class="text-gray-600 mb-4">[PROJECT_DESCRIPTION_2]</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag">[TECH_4]</span>
-                            <span class="tech-tag">[TECH_5]</span>
-                            <span class="tech-tag">[TECH_6]</span>
-                        </div>
-                        <div class="flex gap-3">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt mr-2"></i>
-                                Live Demo
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github mr-2"></i>
-                                Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="w-full h-48 bg-gradient-to-br from-purple-100 to-pink-100 rounded-t-lg flex items-center justify-center">
-                            <i class="fas fa-server text-4xl text-gray-400"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">[PROJECT_NAME_3]</h3>
-                        <p class="text-gray-600 mb-4">[PROJECT_DESCRIPTION_3]</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
+                        <div class="timeline-date text-slate-400">[DATE_RANGE_3]</div>
+                        <p class="text-slate-300 mt-4 leading-relaxed">[JOB_DESCRIPTION_3]</p>
+                        <div class="mt-6">
                             <span class="tech-tag">[TECH_7]</span>
                             <span class="tech-tag">[TECH_8]</span>
                             <span class="tech-tag">[TECH_9]</span>
                         </div>
-                        <div class="flex gap-3">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt mr-2"></i>
-                                Live Demo
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github mr-2"></i>
-                                Code
-                            </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section - Horizontal Scroll Gallery -->
+    <section id="projects" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold mb-4 section-title">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">Featured</span>
+                    <br>Projects
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-emerald-400 mx-auto"></div>
+            </div>
+            <div class="horizontal-scroll-container">
+                <div class="horizontal-scroll-content">
+                    <!-- Project 1 -->
+                    <div class="project-card glass-card">
+                        <div class="project-image">
+                            <div class="w-full h-64 bg-gradient-to-br from-cyan-400/20 to-emerald-400/20 rounded-t-2xl flex items-center justify-center border-b border-cyan-400/30">
+                                <i class="fas fa-laptop-code text-6xl text-cyan-400/50"></i>
+                            </div>
+                        </div>
+                        <div class="project-content p-8">
+                            <h3 class="text-2xl font-semibold text-white mb-4">[PROJECT_NAME_1]</h3>
+                            <p class="text-slate-300 mb-6 leading-relaxed">[PROJECT_DESCRIPTION_1]</p>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="tech-tag">[TECH_1]</span>
+                                <span class="tech-tag">[TECH_2]</span>
+                                <span class="tech-tag">[TECH_3]</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github mr-2"></i>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card glass-card">
+                        <div class="project-image">
+                            <div class="w-full h-64 bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 rounded-t-2xl flex items-center justify-center border-b border-emerald-400/30">
+                                <i class="fas fa-mobile-alt text-6xl text-emerald-400/50"></i>
+                            </div>
+                        </div>
+                        <div class="project-content p-8">
+                            <h3 class="text-2xl font-semibold text-white mb-4">[PROJECT_NAME_2]</h3>
+                            <p class="text-slate-300 mb-6 leading-relaxed">[PROJECT_DESCRIPTION_2]</p>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="tech-tag">[TECH_4]</span>
+                                <span class="tech-tag">[TECH_5]</span>
+                                <span class="tech-tag">[TECH_6]</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github mr-2"></i>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card glass-card">
+                        <div class="project-image">
+                            <div class="w-full h-64 bg-gradient-to-br from-cyan-400/20 to-emerald-400/20 rounded-t-2xl flex items-center justify-center border-b border-cyan-400/30">
+                                <i class="fas fa-server text-6xl text-cyan-400/50"></i>
+                            </div>
+                        </div>
+                        <div class="project-content p-8">
+                            <h3 class="text-2xl font-semibold text-white mb-4">[PROJECT_NAME_3]</h3>
+                            <p class="text-slate-300 mb-6 leading-relaxed">[PROJECT_DESCRIPTION_3]</p>
+                            <div class="flex flex-wrap gap-3 mb-6">
+                                <span class="tech-tag">[TECH_7]</span>
+                                <span class="tech-tag">[TECH_8]</span>
+                                <span class="tech-tag">[TECH_9]</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github mr-2"></i>
+                                    Code
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -288,19 +303,22 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-50">
+    <!-- Skills Section - Interactive Grid -->
+    <section id="skills" class="py-32 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4 section-title">Skills & Technologies</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold mb-4 section-title">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">Skills</span>
+                    <br>& Technologies
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-emerald-400 mx-auto"></div>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Frontend Skills -->
-                <div class="skill-category">
+                <div class="skill-category glass-card">
                     <div class="skill-header">
-                        <i class="fas fa-palette text-3xl text-blue-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Frontend Development</h3>
+                        <i class="fas fa-palette text-4xl text-cyan-400 mb-6"></i>
+                        <h3 class="text-2xl font-semibold text-white mb-6">Frontend Development</h3>
                     </div>
                     <div class="skill-grid">
                         <div class="skill-item">
@@ -325,10 +343,10 @@
                 </div>
 
                 <!-- Backend Skills -->
-                <div class="skill-category">
+                <div class="skill-category glass-card">
                     <div class="skill-header">
-                        <i class="fas fa-server text-3xl text-purple-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Backend Development</h3>
+                        <i class="fas fa-server text-4xl text-emerald-400 mb-6"></i>
+                        <h3 class="text-2xl font-semibold text-white mb-6">Backend Development</h3>
                     </div>
                     <div class="skill-grid">
                         <div class="skill-item">
@@ -353,10 +371,10 @@
                 </div>
 
                 <!-- Tools & Others -->
-                <div class="skill-category">
+                <div class="skill-category glass-card">
                     <div class="skill-header">
-                        <i class="fas fa-tools text-3xl text-green-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Tools & Others</h3>
+                        <i class="fas fa-tools text-4xl text-cyan-400 mb-6"></i>
+                        <h3 class="text-2xl font-semibold text-white mb-6">Tools & Others</h3>
                     </div>
                     <div class="skill-grid">
                         <div class="skill-item">
@@ -383,34 +401,37 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
+    <!-- Contact Section - Split Layout -->
+    <section id="contact" class="py-32 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4 section-title">Get In Touch</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold mb-4 section-title">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">Get In</span>
+                    <br>Touch
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-emerald-400 mx-auto"></div>
             </div>
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid lg:grid-cols-2 gap-16">
                 <div class="contact-info">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Let's Connect</h3>
-                    <p class="text-lg text-gray-600 mb-8">
+                    <h3 class="text-3xl font-semibold text-white mb-8">Let's Connect</h3>
+                    <p class="text-xl text-slate-300 mb-12 leading-relaxed">
                         [CONTACT_DESCRIPTION]
                     </p>
-                    <div class="space-y-4">
+                    <div class="space-y-6">
                         <div class="contact-item">
-                            <i class="fas fa-envelope text-blue-600 mr-3"></i>
-                            <span class="text-gray-700">[EMAIL]</span>
+                            <i class="fas fa-envelope text-cyan-400 mr-4 text-xl"></i>
+                            <span class="text-slate-300 text-lg">[EMAIL]</span>
                         </div>
                         <div class="contact-item">
-                            <i class="fas fa-phone text-blue-600 mr-3"></i>
-                            <span class="text-gray-700">[PHONE]</span>
+                            <i class="fas fa-phone text-cyan-400 mr-4 text-xl"></i>
+                            <span class="text-slate-300 text-lg">[PHONE]</span>
                         </div>
                         <div class="contact-item">
-                            <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i>
-                            <span class="text-gray-700">[LOCATION]</span>
+                            <i class="fas fa-map-marker-alt text-cyan-400 mr-4 text-xl"></i>
+                            <span class="text-slate-300 text-lg">[LOCATION]</span>
                         </div>
                     </div>
-                    <div class="social-links mt-8">
+                    <div class="social-links mt-12">
                         <a href="#" class="social-link">
                             <i class="fab fa-linkedin"></i>
                         </a>
@@ -428,23 +449,23 @@
                 <div class="contact-form">
                     <form class="space-y-6">
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <label for="name" class="block text-sm font-medium text-slate-300 mb-3">Name</label>
                             <input type="text" id="name" name="name" class="form-input" required>
                         </div>
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <label for="email" class="block text-sm font-medium text-slate-300 mb-3">Email</label>
                             <input type="email" id="email" name="email" class="form-input" required>
                         </div>
                         <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <label for="subject" class="block text-sm font-medium text-slate-300 mb-3">Subject</label>
                             <input type="text" id="subject" name="subject" class="form-input" required>
                         </div>
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <label for="message" class="block text-sm font-medium text-slate-300 mb-3">Message</label>
                             <textarea id="message" name="message" rows="5" class="form-textarea" required></textarea>
                         </div>
                         <button type="submit" class="btn-primary w-full">
-                            <i class="fas fa-paper-plane mr-2"></i>
+                            <i class="fas fa-paper-plane mr-3"></i>
                             Send Message
                         </button>
                     </form>
@@ -454,29 +475,31 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-slate-800/50 backdrop-blur-xl border-t border-slate-700/50 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h3 class="text-2xl font-bold mb-4">[NAME]</h3>
-                <p class="text-gray-400 mb-6">[FOOTER_DESCRIPTION]</p>
+                <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">[NAME]</h3>
+                <p class="text-slate-400 mb-6">[FOOTER_DESCRIPTION]</p>
                 <div class="flex justify-center space-x-6 mb-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition-colors">
                         <i class="fab fa-linkedin text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition-colors">
                         <i class="fab fa-github text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition-colors">
                         <i class="fab fa-twitter text-xl"></i>
                     </a>
                 </div>
-                <div class="border-t border-gray-800 pt-6">
-                    <p class="text-gray-400">&copy; 2024 [NAME]. All rights reserved.</p>
+                <div class="border-t border-slate-700/50 pt-6">
+                    <p class="text-slate-400">&copy; 2024 [NAME]. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 
