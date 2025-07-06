@@ -15,9 +15,11 @@
   --malibu-peach: #FFE0C7;
 }
 
-body {
-  background: linear-gradient(120deg, var(--bg) 80%, var(--bg-secondary) 120%);
+body, .font-inter {
+  font-family: 'Inter', 'Poppins', 'Nunito', Arial, sans-serif;
+  background: linear-gradient(135deg, #232946 0%, #7FCDFF 40%, #FFB6B9 80%, #FFE0C7 100%);
   color: var(--text);
+  min-height: 100vh;
 }
 
 /* Custom Font */
@@ -1241,23 +1243,23 @@ footer {
 .malibu-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.18;
+  filter: blur(80px);
+  opacity: 0.13;
   z-index: 0;
   pointer-events: none;
 }
 .malibu-blob-1 {
-  width: 400px; height: 400px;
+  width: 500px; height: 500px;
   background: var(--malibu-blue);
   top: -120px; left: -100px;
 }
 .malibu-blob-2 {
-  width: 300px; height: 300px;
+  width: 350px; height: 350px;
   background: var(--malibu-pink);
   top: 200px; right: -80px;
 }
 .malibu-blob-3 {
-  width: 250px; height: 250px;
+  width: 300px; height: 300px;
   background: var(--malibu-lavender);
   bottom: -100px; left: 40%;
 }
