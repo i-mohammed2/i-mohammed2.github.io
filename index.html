@@ -95,132 +95,96 @@
         </div>
     </section>
 
-    <!-- Profile + Stats Orbit Section -->
-    <section id="about" class="py-40 relative flex flex-col items-center justify-center overflow-visible">
-        <div class="relative flex flex-col items-center justify-center" style="min-height: 400px;">
-            <!-- Central Glowing Profile Image -->
-            <div class="profile-orbit-center z-20">
-                <div class="glow-halo"></div>
-                <img src="[PROFILE_IMAGE]" alt="[NAME]" class="profile-img" />
-            </div>
-            <!-- Orbiting Stat Dials -->
-            <div class="orbit-dial orbit-dial-1">
-                <div class="orbit-dial-inner">
-                    <i class="fas fa-rocket"></i>
-                    <span class="orbit-dial-value">[YEARS_EXPERIENCE]</span>
-                    <span class="orbit-dial-label">Years</span>
+    <!-- Simplified Stats Section -->
+    <section id="about" class="py-32">
+        <div class="max-w-4xl mx-auto text-center">
+            <img src="[PROFILE_IMAGE]" alt="[NAME]" class="profile-img-simple mx-auto mb-6" />
+            <h2 class="text-4xl font-bold mb-2">Hi, I'm <span class="gradient-text">[NAME]</span></h2>
+            <p class="text-lg mb-8" style="color: var(--text-secondary);">[BRIEF_DESCRIPTION]</p>
+            <div class="flex flex-wrap justify-center gap-8 mt-8">
+                <div class="stat-card-simple">
+                    <div class="stat-value">[YEARS_EXPERIENCE]</div>
+                    <div class="stat-label">Years Experience</div>
                 </div>
-            </div>
-            <div class="orbit-dial orbit-dial-2">
-                <div class="orbit-dial-inner">
-                    <i class="fas fa-folder-open"></i>
-                    <span class="orbit-dial-value">[PROJECTS_COUNT]</span>
-                    <span class="orbit-dial-label">Projects</span>
+                <div class="stat-card-simple">
+                    <div class="stat-value">[PROJECTS_COUNT]</div>
+                    <div class="stat-label">Projects</div>
                 </div>
-            </div>
-            <div class="orbit-dial orbit-dial-3">
-                <div class="orbit-dial-inner">
-                    <i class="fas fa-building"></i>
-                    <span class="orbit-dial-value">[COMPANIES_COUNT]</span>
-                    <span class="orbit-dial-label">Companies</span>
+                <div class="stat-card-simple">
+                    <div class="stat-value">[COMPANIES_COUNT]</div>
+                    <div class="stat-label">Companies</div>
                 </div>
-            </div>
-        </div>
-        <div class="mt-16 max-w-2xl text-center text-lg text-glow">
-            <h2 class="editorial-title">Meet <span class="gradient-text">[NAME]</span></h2>
-            <p class="editorial-sub">A creative technologist who loves to break things, fix them, and make them beautiful.</p>
-        </div>
-    </section>
-
-    <!-- Zig-Zag Timeline Section -->
-    <section id="experience" class="py-40 relative">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="editorial-title mb-20">Where I've <span class="gradient-text">Made Impact</span></h2>
-            <div class="zigzag-timeline">
-                <!-- Timeline Node 1 -->
-                <div class="timeline-node left">
-                    <div class="timeline-logo"><img src="[COMPANY_LOGO_1]" alt="Company 1" /></div>
-                    <div class="timeline-card glass-card">
-                        <h3 class="font-bold text-xl mb-2">[JOB_TITLE_1] @ [COMPANY_1]</h3>
-                        <div class="text-sm mb-2">[DATE_RANGE_1]</div>
-                        <div class="mb-2">[JOB_DESCRIPTION_1]</div>
-                        <div class="timeline-metric">🚀 [IMPACT_METRIC_1]</div>
-                    </div>
-                </div>
-                <!-- Timeline Node 2 -->
-                <div class="timeline-node right">
-                    <div class="timeline-logo"><img src="[COMPANY_LOGO_2]" alt="Company 2" /></div>
-                    <div class="timeline-card glass-card">
-                        <h3 class="font-bold text-xl mb-2">[JOB_TITLE_2] @ [COMPANY_2]</h3>
-                        <div class="text-sm mb-2">[DATE_RANGE_2]</div>
-                        <div class="mb-2">[JOB_DESCRIPTION_2]</div>
-                        <div class="timeline-metric">🌟 [IMPACT_METRIC_2]</div>
-                    </div>
-                </div>
-                <!-- Timeline Node 3 -->
-                <div class="timeline-node left">
-                    <div class="timeline-logo"><img src="[COMPANY_LOGO_3]" alt="Company 3" /></div>
-                    <div class="timeline-card glass-card">
-                        <h3 class="font-bold text-xl mb-2">[JOB_TITLE_3] @ [COMPANY_3]</h3>
-                        <div class="text-sm mb-2">[DATE_RANGE_3]</div>
-                        <div class="mb-2">[JOB_DESCRIPTION_3]</div>
-                        <div class="timeline-metric">💡 [IMPACT_METRIC_3]</div>
-                    </div>
-                </div>
-                <!-- Zig-zag lines and animation handled in CSS/JS -->
             </div>
         </div>
     </section>
 
-    <!-- Projects: Exploding Gallery Section -->
-    <section id="projects" class="py-40 relative">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="editorial-title mb-20">Selected <span class="gradient-text">Work</span></h2>
-            <div class="exploding-gallery">
-                <!-- Project Card 1 -->
-                <div class="project-explode-card">
-                    <div class="project-img-tilt">
-                        <img src="[PROJECT_IMAGE_1]" alt="[PROJECT_NAME_1]" />
-                    </div>
-                    <div class="project-explode-content">
-                        <h3 class="project-explode-title">[PROJECT_NAME_1]</h3>
-                        <div class="project-explode-tags">
-                            <span class="tech-tag">[TECH_1]</span>
-                            <span class="tech-tag">[TECH_2]</span>
-                            <span class="tech-tag">[TECH_3]</span>
-                        </div>
-                        <p class="project-explode-desc">[PROJECT_DESCRIPTION_1]</p>
+    <!-- Simplified Experience Section -->
+    <section id="experience" class="py-32">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-10 text-center">Experience</h2>
+            <div class="space-y-8">
+                <div class="exp-card-simple flex items-center gap-6 p-6 rounded-xl shadow bg-white">
+                    <img src="[COMPANY_LOGO_1]" alt="Company 1" class="exp-logo-simple" />
+                    <div>
+                        <div class="font-bold text-lg">[JOB_TITLE_1] @ [COMPANY_1]</div>
+                        <div class="text-sm mb-1" style="color: var(--text-secondary);">[DATE_RANGE_1]</div>
+                        <div class="text-base">[JOB_DESCRIPTION_1]</div>
                     </div>
                 </div>
-                <!-- Project Card 2 -->
-                <div class="project-explode-card">
-                    <div class="project-img-tilt">
-                        <img src="[PROJECT_IMAGE_2]" alt="[PROJECT_NAME_2]" />
-                    </div>
-                    <div class="project-explode-content">
-                        <h3 class="project-explode-title">[PROJECT_NAME_2]</h3>
-                        <div class="project-explode-tags">
-                            <span class="tech-tag">[TECH_4]</span>
-                            <span class="tech-tag">[TECH_5]</span>
-                            <span class="tech-tag">[TECH_6]</span>
-                        </div>
-                        <p class="project-explode-desc">[PROJECT_DESCRIPTION_2]</p>
+                <div class="exp-card-simple flex items-center gap-6 p-6 rounded-xl shadow bg-white">
+                    <img src="[COMPANY_LOGO_2]" alt="Company 2" class="exp-logo-simple" />
+                    <div>
+                        <div class="font-bold text-lg">[JOB_TITLE_2] @ [COMPANY_2]</div>
+                        <div class="text-sm mb-1" style="color: var(--text-secondary);">[DATE_RANGE_2]</div>
+                        <div class="text-base">[JOB_DESCRIPTION_2]</div>
                     </div>
                 </div>
-                <!-- Project Card 3 -->
-                <div class="project-explode-card">
-                    <div class="project-img-tilt">
-                        <img src="[PROJECT_IMAGE_3]" alt="[PROJECT_NAME_3]" />
+                <div class="exp-card-simple flex items-center gap-6 p-6 rounded-xl shadow bg-white">
+                    <img src="[COMPANY_LOGO_3]" alt="Company 3" class="exp-logo-simple" />
+                    <div>
+                        <div class="font-bold text-lg">[JOB_TITLE_3] @ [COMPANY_3]</div>
+                        <div class="text-sm mb-1" style="color: var(--text-secondary);">[DATE_RANGE_3]</div>
+                        <div class="text-base">[JOB_DESCRIPTION_3]</div>
                     </div>
-                    <div class="project-explode-content">
-                        <h3 class="project-explode-title">[PROJECT_NAME_3]</h3>
-                        <div class="project-explode-tags">
-                            <span class="tech-tag">[TECH_7]</span>
-                            <span class="tech-tag">[TECH_8]</span>
-                            <span class="tech-tag">[TECH_9]</span>
-                        </div>
-                        <p class="project-explode-desc">[PROJECT_DESCRIPTION_3]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simplified Projects Section -->
+    <section id="projects" class="py-32">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-10 text-center">Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="proj-card-simple bg-white p-6 rounded-xl shadow flex flex-col items-start">
+                    <img src="[PROJECT_IMAGE_1]" alt="[PROJECT_NAME_1]" class="proj-img-simple mb-4" />
+                    <div class="font-bold text-lg mb-1">[PROJECT_NAME_1]</div>
+                    <div class="flex flex-wrap gap-2 mb-2">
+                        <span class="tech-tag">[TECH_1]</span>
+                        <span class="tech-tag">[TECH_2]</span>
+                        <span class="tech-tag">[TECH_3]</span>
                     </div>
+                    <div class="text-base mb-2">[PROJECT_DESCRIPTION_1]</div>
+                </div>
+                <div class="proj-card-simple bg-white p-6 rounded-xl shadow flex flex-col items-start">
+                    <img src="[PROJECT_IMAGE_2]" alt="[PROJECT_NAME_2]" class="proj-img-simple mb-4" />
+                    <div class="font-bold text-lg mb-1">[PROJECT_NAME_2]</div>
+                    <div class="flex flex-wrap gap-2 mb-2">
+                        <span class="tech-tag">[TECH_4]</span>
+                        <span class="tech-tag">[TECH_5]</span>
+                        <span class="tech-tag">[TECH_6]</span>
+                    </div>
+                    <div class="text-base mb-2">[PROJECT_DESCRIPTION_2]</div>
+                </div>
+                <div class="proj-card-simple bg-white p-6 rounded-xl shadow flex flex-col items-start">
+                    <img src="[PROJECT_IMAGE_3]" alt="[PROJECT_NAME_3]" class="proj-img-simple mb-4" />
+                    <div class="font-bold text-lg mb-1">[PROJECT_NAME_3]</div>
+                    <div class="flex flex-wrap gap-2 mb-2">
+                        <span class="tech-tag">[TECH_7]</span>
+                        <span class="tech-tag">[TECH_8]</span>
+                        <span class="tech-tag">[TECH_9]</span>
+                    </div>
+                    <div class="text-base mb-2">[PROJECT_DESCRIPTION_3]</div>
                 </div>
             </div>
         </div>
@@ -321,20 +285,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Lab / Experiments Section -->
-    <section id="lab" class="py-40 relative bg-black/80">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="editorial-title mb-8">Experimental <span class="gradient-text">Lab</span></h2>
-            <p class="editorial-sub mb-12">Welcome to the Sandbox. Here, anything goes. Drag, play, and discover hidden surprises!</p>
-            <div class="lab-canvas-container relative flex flex-col items-center justify-center">
-                <canvas id="code-rain-canvas" width="700" height="220" style="width:100%;max-width:700px;height:220px;background:transparent;"></canvas>
-                <div class="draggable-lab-box" style="top:60px;left:60px;">🧪 Drag me!</div>
-                <div class="draggable-lab-box" style="top:120px;left:320px;">💡 Or me!</div>
-            </div>
-            <div class="mt-10 text-glow text-lg">Try the Konami code or click the footer for a surprise!</div>
         </div>
     </section>
 

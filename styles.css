@@ -1,14 +1,19 @@
 /* CSS Variables for Easy Theme Switching */
 :root {
-  --bg: #0F0F0F;
-  --bg-secondary: #1A1A1A;
-  --accent: #00FFF7;
-  --accent-secondary: #00D4CC;
-  --text: #EAEAEA;
-  --text-secondary: #B0B0B0;
-  --border: rgba(0, 255, 247, 0.2);
-  --glow: rgba(0, 255, 247, 0.3);
-  --shadow: rgba(0, 0, 0, 0.8);
+  --bg: #FFF8F0;
+  --bg-secondary: #F5F0E8;
+  --accent: #FF5C8D;
+  --accent-secondary: #7FCDFF;
+  --text: #292929;
+  --text-secondary: #666666;
+  --border: rgba(255, 92, 141, 0.2);
+  --glow: rgba(255, 92, 141, 0.13);
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
 }
 
 /* Custom Font */
@@ -1159,120 +1164,6 @@ html {
     max-width: 98vw;
     margin: 0 0 2rem 0;
   }
-}
-
-/* Lab / Experiments Section */
-#lab {
-  background: linear-gradient(120deg, #0f0f0f 80%, #00fff7 120%);
-  position: relative;
-  z-index: 1;
-}
-.lab-canvas-container {
-  width: 100%;
-  min-height: 240px;
-  position: relative;
-  margin: 0 auto 2rem auto;
-}
-#code-rain-canvas {
-  border-radius: 1.5rem;
-  box-shadow: 0 0 40px var(--glow);
-  background: rgba(15,15,15,0.7);
-  margin-bottom: 1.5rem;
-}
-.draggable-lab-box {
-  position: absolute;
-  min-width: 120px;
-  min-height: 48px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-  color: var(--bg);
-  font-size: 1.3rem;
-  font-weight: 700;
-  border-radius: 1.2rem;
-  box-shadow: 0 0 20px var(--glow);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: grab;
-  z-index: 10;
-  user-select: none;
-  transition: box-shadow 0.3s, transform 0.2s;
-}
-.draggable-lab-box:active {
-  box-shadow: 0 0 40px var(--accent);
-  transform: scale(1.08);
-  cursor: grabbing;
-}
-
-/* Animated Contact Section */
-.animated-contact-form {
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-}
-.floating-label-group {
-  position: relative;
-  width: 100%;
-  margin-bottom: 2.2rem;
-}
-.floating-label-group input.floating,
-.floating-label-group textarea.floating {
-  background: rgba(26, 26, 26, 0.5);
-  border: 1.5px solid var(--border);
-  color: var(--text);
-  border-radius: 1.2rem;
-  padding: 1.2rem 1.2rem 0.8rem 1.2rem;
-  width: 100%;
-  font-size: 1.1rem;
-  font-weight: 500;
-  transition: border 0.3s, box-shadow 0.3s;
-  outline: none;
-  z-index: 1;
-}
-.floating-label-group label {
-  position: absolute;
-  left: 1.2rem;
-  top: 1.2rem;
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  font-weight: 500;
-  pointer-events: none;
-  background: transparent;
-  transition: 0.2s cubic-bezier(0.77,0,0.18,1);
-  z-index: 2;
-}
-.floating-label-group input.floating:focus + label,
-.floating-label-group input.floating:not(:placeholder-shown) + label,
-.floating-label-group textarea.floating:focus + label,
-.floating-label-group textarea.floating:not(:placeholder-shown) + label {
-  top: -0.7rem;
-  left: 1.1rem;
-  font-size: 0.92rem;
-  color: var(--accent);
-  background: var(--bg);
-  padding: 0 0.3rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 10px var(--glow);
-}
-.send-animated {
-  position: relative;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7em;
-  font-size: 1.1rem;
-  font-weight: 700;
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-}
-.send-plane {
-  display: inline-block;
-  opacity: 0;
-  transform: translateX(-10px) scale(0.7);
-  transition: opacity 0.3s, transform 0.3s;
-}
-.send-animated:active .send-plane,
-.send-animated:focus .send-plane {
-  opacity: 1;
-  transform: translateX(10px) scale(1.2) rotate(-10deg);
 }
 
 /* Footer with Personality & Easter Egg */
