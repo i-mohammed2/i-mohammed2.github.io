@@ -13,6 +13,38 @@ document.addEventListener('DOMContentLoaded', function() {
     initThemeToggle();
     initHorizontalScroll();
     initFloatingElements();
+    updateOrbitDials();
+    animateTimelineNodes();
+    startCodeRain();
+    makeDraggable('.draggable-lab-box');
+    const floatingInputs = document.querySelectorAll('.floating-label-group input.floating, .floating-label-group textarea.floating');
+    floatingInputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            input.classList.add('has-content');
+        });
+        input.addEventListener('blur', () => {
+            if (!input.value) input.classList.remove('has-content');
+        });
+    });
+    const footerEgg = document.getElementById('footer-easter-egg');
+    const eggModal = document.getElementById('easter-egg-modal');
+    const closeEgg = document.getElementById('close-easter-egg');
+    if (footerEgg && eggModal && closeEgg) {
+        footerEgg.addEventListener('click', () => {
+            eggModal.classList.add('active');
+            eggModal.style.display = 'flex';
+        });
+        closeEgg.addEventListener('click', () => {
+            eggModal.classList.remove('active');
+            eggModal.style.display = 'none';
+        });
+        eggModal.addEventListener('click', (e) => {
+            if (e.target === eggModal) {
+                eggModal.classList.remove('active');
+                eggModal.style.display = 'none';
+            }
+        });
+    }
 });
 
 // Particles.js Configuration
@@ -648,4 +680,170 @@ style.textContent = `
         color: #06b6d4 !important;
     }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(style);
+
+// Orbiting Stat Dials Animation (ensure orbits stay in sync on resize)
+function updateOrbitDials() {
+    const center = document.querySelector('.profile-orbit-center');
+    if (!center) return;
+    const rect = center.getBoundingClientRect();
+    const dials = document.querySelectorAll('.orbit-dial');
+    dials.forEach((dial, i) => {
+        dial.style.top = `${rect.top + rect.height / 2 + window.scrollY}px`;
+        dial.style.left = `${rect.left + rect.width / 2 + window.scrollX}px`;
+    });
+}
+window.addEventListener('resize', updateOrbitDials);
+window.addEventListener('scroll', updateOrbitDials);
+document.addEventListener('DOMContentLoaded', updateOrbitDials);
+
+// Interactive Profile Image Parallax/Tilt
+const profileImg = document.querySelector('.profile-img');
+if (profileImg) {
+    profileImg.addEventListener('mousemove', (e) => {
+        const rect = profileImg.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        profileImg.style.transform = `rotateY(${x / 15}deg) rotateX(${-y / 15}deg) scale(1.05)`;
+    });
+    profileImg.addEventListener('mouseleave', () => {
+        profileImg.style.transform = '';
+    });
+}
+
+// Zig-Zag Timeline Animation (pulse on scroll)
+function animateTimelineNodes() {
+    const nodes = document.querySelectorAll('.timeline-node');
+    nodes.forEach((node, i) => {
+        const rect = node.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+            node.classList.add('animate');
+        }
+    });
+}
+window.addEventListener('scroll', animateTimelineNodes);
+document.addEventListener('DOMContentLoaded', animateTimelineNodes);
+
+// Exploding Project Gallery Interactions
+const projectCards = document.querySelectorAll('.project-explode-card');
+projectCards.forEach(card => {
+  // 3D tilt effect on mouse move
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `rotateY(${x / 18}deg) rotateX(${-y / 18}deg) scale(1.08)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+  // Floating tag cloud animation
+  const tags = card.querySelectorAll('.tech-tag');
+  tags.forEach((tag, i) => {
+    tag.style.animation = `tagFloat 2.2s ${i * 0.2}s infinite alternate cubic-bezier(0.77,0,0.18,1)`;
+  });
+});
+
+// Tag float animation
+const tagFloatKeyframes = `
+@keyframes tagFloat {
+  0% { transform: translateY(0px) scale(1); }
+  100% { transform: translateY(-8px) scale(1.08); }
+}
+`;
+if (!document.getElementById('tag-float-keyframes')) {
+  const style = document.createElement('style');
+  style.id = 'tag-float-keyframes';
+  style.innerHTML = tagFloatKeyframes;
+  document.head.appendChild(style);
+}
+
+// LAB: Code Rain Animation
+function startCodeRain() {
+  const canvas = document.getElementById('code-rain-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width;
+  const h = canvas.height;
+  const cols = Math.floor(w / 18);
+  const chars = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const fontSize = 18;
+  const drops = Array(cols).fill(1);
+  function draw() {
+    ctx.fillStyle = 'rgba(15,15,15,0.18)';
+    ctx.fillRect(0, 0, w, h);
+    ctx.font = fontSize + 'px monospace';
+    for (let i = 0; i < drops.length; i++) {
+      const text = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillStyle = '#00FFF7';
+      ctx.shadowColor = '#00FFF7';
+      ctx.shadowBlur = 8;
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      ctx.shadowBlur = 0;
+      if (drops[i] * fontSize > h && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+  setInterval(draw, 50);
+}
+startCodeRain();
+
+// LAB: Draggable Lab Boxes
+function makeDraggable(selector) {
+  const boxes = document.querySelectorAll(selector);
+  boxes.forEach(box => {
+    let isDragging = false, offsetX = 0, offsetY = 0;
+    box.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = e.clientX - box.offsetLeft;
+      offsetY = e.clientY - box.offsetTop;
+      box.style.zIndex = 1000;
+      box.style.cursor = 'grabbing';
+    });
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      box.style.left = (e.clientX - offsetX) + 'px';
+      box.style.top = (e.clientY - offsetY) + 'px';
+    });
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      box.style.zIndex = 10;
+      box.style.cursor = 'grab';
+    });
+  });
+}
+makeDraggable('.draggable-lab-box');
+
+// Animated Contact: Floating Labels
+const floatingInputs = document.querySelectorAll('.floating-label-group input.floating, .floating-label-group textarea.floating');
+floatingInputs.forEach(input => {
+  input.addEventListener('focus', () => {
+    input.classList.add('has-content');
+  });
+  input.addEventListener('blur', () => {
+    if (!input.value) input.classList.remove('has-content');
+  });
+});
+
+// Footer Easter Egg Modal
+const footerEgg = document.getElementById('footer-easter-egg');
+const eggModal = document.getElementById('easter-egg-modal');
+const closeEgg = document.getElementById('close-easter-egg');
+if (footerEgg && eggModal && closeEgg) {
+  footerEgg.addEventListener('click', () => {
+    eggModal.classList.add('active');
+    eggModal.style.display = 'flex';
+  });
+  closeEgg.addEventListener('click', () => {
+    eggModal.classList.remove('active');
+    eggModal.style.display = 'none';
+  });
+  eggModal.addEventListener('click', (e) => {
+    if (e.target === eggModal) {
+      eggModal.classList.remove('active');
+      eggModal.style.display = 'none';
+    }
+  });
+} 

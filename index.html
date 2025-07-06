@@ -95,240 +95,131 @@
         </div>
     </section>
 
-    <!-- About Section - Terminal Style -->
-    <section id="about" class="py-32 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-12 gap-16 items-center">
-                <!-- Left Column - Terminal -->
-                <div class="lg:col-span-7 about-content">
-                    <h2 class="text-5xl font-bold mb-8 section-title">
-                        <span class="gradient-text">Who's Behind</span>
-                        <br>the Code?
-                    </h2>
-                    
-                    <!-- Terminal Component -->
-                    <div class="terminal mb-8">
-                        <div class="terminal-line">
-                            <span class="text-green-400">$</span> whoami
-                        </div>
-                        <div class="terminal-line">
-                            <span class="text-cyan-400">→</span> [NAME]
-                        </div>
-                        <div class="terminal-line">
-                            <span class="text-green-400">$</span> location
-                        </div>
-                        <div class="terminal-line">
-                            <span class="text-cyan-400">→</span> [LOCATION]
-                        </div>
-                        <div class="terminal-line">
-                            <span class="text-green-400">$</span> tech_stack --full
-                        </div>
-                        <div class="terminal-line">
-                            <span class="text-cyan-400">→</span> React, TypeScript, Node.js, PostgreSQL
-                        </div>
-                        <div class="terminal-line">
-                            <span class="text-green-400">$</span> <span class="terminal-cursor">_</span>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-6 text-lg leading-relaxed" style="color: var(--text-secondary);">
-                        <p>[ABOUT_PARAGRAPH_1]</p>
-                        <p>[ABOUT_PARAGRAPH_2]</p>
+    <!-- Profile + Stats Orbit Section -->
+    <section id="about" class="py-40 relative flex flex-col items-center justify-center overflow-visible">
+        <div class="relative flex flex-col items-center justify-center" style="min-height: 400px;">
+            <!-- Central Glowing Profile Image -->
+            <div class="profile-orbit-center z-20">
+                <div class="glow-halo"></div>
+                <img src="[PROFILE_IMAGE]" alt="[NAME]" class="profile-img" />
+            </div>
+            <!-- Orbiting Stat Dials -->
+            <div class="orbit-dial orbit-dial-1">
+                <div class="orbit-dial-inner">
+                    <i class="fas fa-rocket"></i>
+                    <span class="orbit-dial-value">[YEARS_EXPERIENCE]</span>
+                    <span class="orbit-dial-label">Years</span>
+                </div>
+            </div>
+            <div class="orbit-dial orbit-dial-2">
+                <div class="orbit-dial-inner">
+                    <i class="fas fa-folder-open"></i>
+                    <span class="orbit-dial-value">[PROJECTS_COUNT]</span>
+                    <span class="orbit-dial-label">Projects</span>
+                </div>
+            </div>
+            <div class="orbit-dial orbit-dial-3">
+                <div class="orbit-dial-inner">
+                    <i class="fas fa-building"></i>
+                    <span class="orbit-dial-value">[COMPANIES_COUNT]</span>
+                    <span class="orbit-dial-label">Companies</span>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 max-w-2xl text-center text-lg text-glow">
+            <h2 class="editorial-title">Meet <span class="gradient-text">[NAME]</span></h2>
+            <p class="editorial-sub">A creative technologist who loves to break things, fix them, and make them beautiful.</p>
+        </div>
+    </section>
+
+    <!-- Zig-Zag Timeline Section -->
+    <section id="experience" class="py-40 relative">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="editorial-title mb-20">Where I've <span class="gradient-text">Made Impact</span></h2>
+            <div class="zigzag-timeline">
+                <!-- Timeline Node 1 -->
+                <div class="timeline-node left">
+                    <div class="timeline-logo"><img src="[COMPANY_LOGO_1]" alt="Company 1" /></div>
+                    <div class="timeline-card glass-card">
+                        <h3 class="font-bold text-xl mb-2">[JOB_TITLE_1] @ [COMPANY_1]</h3>
+                        <div class="text-sm mb-2">[DATE_RANGE_1]</div>
+                        <div class="mb-2">[JOB_DESCRIPTION_1]</div>
+                        <div class="timeline-metric">🚀 [IMPACT_METRIC_1]</div>
                     </div>
                 </div>
-                <!-- Right Column - Stats -->
-                <div class="lg:col-span-5 about-visual">
-                    <div class="glass-card p-8 rounded-3xl">
-                        <div class="w-full h-80 rounded-2xl flex items-center justify-center" style="background: rgba(0, 255, 247, 0.1); border: 1px solid var(--border);">
-                            <div class="text-center">
-                                <i class="fas fa-user-circle text-8xl mb-4" style="color: var(--accent); opacity: 0.5;"></i>
-                                <p style="color: var(--text-secondary);">[PROFILE_IMAGE_PLACEHOLDER]</p>
-                            </div>
-                        </div>
-                        <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full flex items-center justify-center text-2xl font-bold shadow-2xl" style="background: linear-gradient(135deg, var(--accent), var(--accent-secondary)); color: var(--bg);">
-                            [YEARS_EXPERIENCE]
-                        </div>
-                    </div>
-                    
-                    <!-- Stats Grid -->
-                    <div class="grid grid-cols-3 gap-4 mt-8">
-                        <div class="stat-item">
-                            <div class="text-4xl font-bold" style="color: var(--accent);">[YEARS_EXPERIENCE]+</div>
-                            <div style="color: var(--text-secondary);">Years Experience</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="text-4xl font-bold" style="color: var(--accent);">[PROJECTS_COUNT]+</div>
-                            <div style="color: var(--text-secondary);">Projects Completed</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="text-4xl font-bold" style="color: var(--accent);">[COMPANIES_COUNT]+</div>
-                            <div style="color: var(--text-secondary);">Companies Worked</div>
-                        </div>
+                <!-- Timeline Node 2 -->
+                <div class="timeline-node right">
+                    <div class="timeline-logo"><img src="[COMPANY_LOGO_2]" alt="Company 2" /></div>
+                    <div class="timeline-card glass-card">
+                        <h3 class="font-bold text-xl mb-2">[JOB_TITLE_2] @ [COMPANY_2]</h3>
+                        <div class="text-sm mb-2">[DATE_RANGE_2]</div>
+                        <div class="mb-2">[JOB_DESCRIPTION_2]</div>
+                        <div class="timeline-metric">🌟 [IMPACT_METRIC_2]</div>
                     </div>
                 </div>
+                <!-- Timeline Node 3 -->
+                <div class="timeline-node left">
+                    <div class="timeline-logo"><img src="[COMPANY_LOGO_3]" alt="Company 3" /></div>
+                    <div class="timeline-card glass-card">
+                        <h3 class="font-bold text-xl mb-2">[JOB_TITLE_3] @ [COMPANY_3]</h3>
+                        <div class="text-sm mb-2">[DATE_RANGE_3]</div>
+                        <div class="mb-2">[JOB_DESCRIPTION_3]</div>
+                        <div class="timeline-metric">💡 [IMPACT_METRIC_3]</div>
+                    </div>
+                </div>
+                <!-- Zig-zag lines and animation handled in CSS/JS -->
             </div>
         </div>
     </section>
 
-    <!-- Experience Section - Timeline -->
-    <section id="experience" class="py-32 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl font-bold mb-4 section-title">
-                    <span class="gradient-text">Things I've</span>
-                    <br>Broken & Then Fixed
-                </h2>
-                <div class="w-24 h-1 mx-auto" style="background: linear-gradient(90deg, var(--accent), var(--accent-secondary));"></div>
-            </div>
-            <div class="timeline-container">
-                <!-- Experience Item 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <h3 class="text-2xl font-semibold text-white">[JOB_TITLE_1]</h3>
-                            <span class="font-medium" style="color: var(--accent);">[COMPANY_1]</span>
-                        </div>
-                        <div class="timeline-date">[DATE_RANGE_1]</div>
-                        <p class="mt-4 leading-relaxed" style="color: var(--text-secondary);">[JOB_DESCRIPTION_1]</p>
-                        <div class="mt-6">
+    <!-- Projects: Exploding Gallery Section -->
+    <section id="projects" class="py-40 relative">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="editorial-title mb-20">Selected <span class="gradient-text">Work</span></h2>
+            <div class="exploding-gallery">
+                <!-- Project Card 1 -->
+                <div class="project-explode-card">
+                    <div class="project-img-tilt">
+                        <img src="[PROJECT_IMAGE_1]" alt="[PROJECT_NAME_1]" />
+                    </div>
+                    <div class="project-explode-content">
+                        <h3 class="project-explode-title">[PROJECT_NAME_1]</h3>
+                        <div class="project-explode-tags">
                             <span class="tech-tag">[TECH_1]</span>
                             <span class="tech-tag">[TECH_2]</span>
                             <span class="tech-tag">[TECH_3]</span>
                         </div>
+                        <p class="project-explode-desc">[PROJECT_DESCRIPTION_1]</p>
                     </div>
                 </div>
-
-                <!-- Experience Item 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <h3 class="text-2xl font-semibold text-white">[JOB_TITLE_2]</h3>
-                            <span class="font-medium" style="color: var(--accent);">[COMPANY_2]</span>
-                        </div>
-                        <div class="timeline-date">[DATE_RANGE_2]</div>
-                        <p class="mt-4 leading-relaxed" style="color: var(--text-secondary);">[JOB_DESCRIPTION_2]</p>
-                        <div class="mt-6">
+                <!-- Project Card 2 -->
+                <div class="project-explode-card">
+                    <div class="project-img-tilt">
+                        <img src="[PROJECT_IMAGE_2]" alt="[PROJECT_NAME_2]" />
+                    </div>
+                    <div class="project-explode-content">
+                        <h3 class="project-explode-title">[PROJECT_NAME_2]</h3>
+                        <div class="project-explode-tags">
                             <span class="tech-tag">[TECH_4]</span>
                             <span class="tech-tag">[TECH_5]</span>
                             <span class="tech-tag">[TECH_6]</span>
                         </div>
+                        <p class="project-explode-desc">[PROJECT_DESCRIPTION_2]</p>
                     </div>
                 </div>
-
-                <!-- Experience Item 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <h3 class="text-2xl font-semibold text-white">[JOB_TITLE_3]</h3>
-                            <span class="font-medium" style="color: var(--accent);">[COMPANY_3]</span>
-                        </div>
-                        <div class="timeline-date">[DATE_RANGE_3]</div>
-                        <p class="mt-4 leading-relaxed" style="color: var(--text-secondary);">[JOB_DESCRIPTION_3]</p>
-                        <div class="mt-6">
+                <!-- Project Card 3 -->
+                <div class="project-explode-card">
+                    <div class="project-img-tilt">
+                        <img src="[PROJECT_IMAGE_3]" alt="[PROJECT_NAME_3]" />
+                    </div>
+                    <div class="project-explode-content">
+                        <h3 class="project-explode-title">[PROJECT_NAME_3]</h3>
+                        <div class="project-explode-tags">
                             <span class="tech-tag">[TECH_7]</span>
                             <span class="tech-tag">[TECH_8]</span>
                             <span class="tech-tag">[TECH_9]</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section - Horizontal Scroll -->
-    <section id="projects" class="py-32 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl font-bold mb-4 section-title">
-                    <span class="gradient-text">Things I've</span>
-                    <br>Built
-                </h2>
-                <div class="w-24 h-1 mx-auto" style="background: linear-gradient(90deg, var(--accent), var(--accent-secondary));"></div>
-            </div>
-            <div class="horizontal-scroll-container">
-                <div class="horizontal-scroll-content">
-                    <!-- Project 1 -->
-                    <div class="project-card glass-card">
-                        <div class="project-image">
-                            <div class="w-full h-64 rounded-t-2xl flex items-center justify-center border-b" style="background: rgba(0, 255, 247, 0.1); border-color: var(--border);">
-                                <i class="fas fa-laptop-code text-6xl" style="color: var(--accent); opacity: 0.5;"></i>
-                            </div>
-                        </div>
-                        <div class="project-content p-8">
-                            <h3 class="text-2xl font-semibold text-white mb-4">[PROJECT_NAME_1]</h3>
-                            <p class="mb-6 leading-relaxed" style="color: var(--text-secondary);">[PROJECT_DESCRIPTION_1]</p>
-                            <div class="flex flex-wrap gap-3 mb-6">
-                                <span class="tech-tag">[TECH_1]</span>
-                                <span class="tech-tag">[TECH_2]</span>
-                                <span class="tech-tag">[TECH_3]</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt mr-2"></i>
-                                    Live Demo
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fab fa-github mr-2"></i>
-                                    Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="project-card glass-card">
-                        <div class="project-image">
-                            <div class="w-full h-64 rounded-t-2xl flex items-center justify-center border-b" style="background: rgba(0, 255, 247, 0.1); border-color: var(--border);">
-                                <i class="fas fa-mobile-alt text-6xl" style="color: var(--accent); opacity: 0.5;"></i>
-                            </div>
-                        </div>
-                        <div class="project-content p-8">
-                            <h3 class="text-2xl font-semibold text-white mb-4">[PROJECT_NAME_2]</h3>
-                            <p class="mb-6 leading-relaxed" style="color: var(--text-secondary);">[PROJECT_DESCRIPTION_2]</p>
-                            <div class="flex flex-wrap gap-3 mb-6">
-                                <span class="tech-tag">[TECH_4]</span>
-                                <span class="tech-tag">[TECH_5]</span>
-                                <span class="tech-tag">[TECH_6]</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt mr-2"></i>
-                                    Live Demo
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fab fa-github mr-2"></i>
-                                    Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-card glass-card">
-                        <div class="project-image">
-                            <div class="w-full h-64 rounded-t-2xl flex items-center justify-center border-b" style="background: rgba(0, 255, 247, 0.1); border-color: var(--border);">
-                                <i class="fas fa-server text-6xl" style="color: var(--accent); opacity: 0.5;"></i>
-                            </div>
-                        </div>
-                        <div class="project-content p-8">
-                            <h3 class="text-2xl font-semibold text-white mb-4">[PROJECT_NAME_3]</h3>
-                            <p class="mb-6 leading-relaxed" style="color: var(--text-secondary);">[PROJECT_DESCRIPTION_3]</p>
-                            <div class="flex flex-wrap gap-3 mb-6">
-                                <span class="tech-tag">[TECH_7]</span>
-                                <span class="tech-tag">[TECH_8]</span>
-                                <span class="tech-tag">[TECH_9]</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt mr-2"></i>
-                                    Live Demo
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fab fa-github mr-2"></i>
-                                    Code
-                                </a>
-                            </div>
-                        </div>
+                        <p class="project-explode-desc">[PROJECT_DESCRIPTION_3]</p>
                     </div>
                 </div>
             </div>
@@ -433,99 +324,73 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-32 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl font-bold mb-4 section-title">
-                    <span class="gradient-text">Let's</span>
-                    <br>Talk
-                </h2>
-                <div class="w-24 h-1 mx-auto" style="background: linear-gradient(90deg, var(--accent), var(--accent-secondary));"></div>
+    <!-- Lab / Experiments Section -->
+    <section id="lab" class="py-40 relative bg-black/80">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="editorial-title mb-8">Experimental <span class="gradient-text">Lab</span></h2>
+            <p class="editorial-sub mb-12">Welcome to the Sandbox. Here, anything goes. Drag, play, and discover hidden surprises!</p>
+            <div class="lab-canvas-container relative flex flex-col items-center justify-center">
+                <canvas id="code-rain-canvas" width="700" height="220" style="width:100%;max-width:700px;height:220px;background:transparent;"></canvas>
+                <div class="draggable-lab-box" style="top:60px;left:60px;">🧪 Drag me!</div>
+                <div class="draggable-lab-box" style="top:120px;left:320px;">💡 Or me!</div>
             </div>
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div class="contact-info">
-                    <h3 class="text-3xl font-semibold text-white mb-8">Ready to Build Something Amazing?</h3>
-                    <p class="text-xl mb-12 leading-relaxed" style="color: var(--text-secondary);">
-                        [CONTACT_DESCRIPTION]
-                    </p>
-                    <div class="space-y-6">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope mr-4 text-xl" style="color: var(--accent);"></i>
-                            <span class="text-lg" style="color: var(--text-secondary);">[EMAIL]</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone mr-4 text-xl" style="color: var(--accent);"></i>
-                            <span class="text-lg" style="color: var(--text-secondary);">[PHONE]</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt mr-4 text-xl" style="color: var(--accent);"></i>
-                            <span class="text-lg" style="color: var(--text-secondary);">[LOCATION]</span>
-                        </div>
-                    </div>
-                    <div class="social-links mt-12">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
+            <div class="mt-10 text-glow text-lg">Try the Konami code or click the footer for a surprise!</div>
+        </div>
+    </section>
+
+    <!-- Animated Contact Section -->
+    <section id="contact" class="py-40 relative">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="editorial-title mb-8">Let's <span class="gradient-text">Connect</span></h2>
+            <p class="editorial-sub mb-12">Send me a message or just say hi. I love meeting new collaborators!</p>
+            <form class="animated-contact-form space-y-8 flex flex-col items-center">
+                <div class="floating-label-group">
+                    <input type="text" id="name" name="name" class="form-input floating" required />
+                    <label for="name">Name</label>
                 </div>
-                <div class="contact-form">
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium mb-3" style="color: var(--text-secondary);">Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium mb-3" style="color: var(--text-secondary);">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-sm font-medium mb-3" style="color: var(--text-secondary);">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-input" required>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium mb-3" style="color: var(--text-secondary);">Message</label>
-                            <textarea id="message" name="message" rows="5" class="form-textarea" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary w-full">
-                            <i class="fas fa-paper-plane mr-3"></i>
-                            Send Message
-                        </button>
-                    </form>
+                <div class="floating-label-group">
+                    <input type="email" id="email" name="email" class="form-input floating" required />
+                    <label for="email">Email</label>
                 </div>
+                <div class="floating-label-group">
+                    <textarea id="message" name="message" rows="4" class="form-textarea floating" required></textarea>
+                    <label for="message">Message</label>
+                </div>
+                <button type="submit" class="btn-primary send-animated">
+                    <span class="send-text">Send Message</span>
+                    <span class="send-plane">✈️</span>
+                </button>
+            </form>
+            <div class="mt-10 flex justify-center gap-8">
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12" style="background: rgba(26, 26, 26, 0.5); backdrop-filter: blur(20px); border-top: 1px solid var(--border);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h3 class="text-2xl font-bold mb-4 gradient-text">[NAME]</h3>
-                <p class="mb-6" style="color: var(--text-secondary);">[FOOTER_DESCRIPTION]</p>
-                <div class="flex justify-center space-x-6 mb-6">
-                    <a href="#" style="color: var(--text-secondary);" class="hover:text-cyan-400 transition-colors">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="#" style="color: var(--text-secondary);" class="hover:text-cyan-400 transition-colors">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" style="color: var(--text-secondary);" class="hover:text-cyan-400 transition-colors">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                </div>
-                <div class="pt-6" style="border-top: 1px solid var(--border);">
-                    <p style="color: var(--text-secondary);">&copy; 2024 [NAME]. Built from scratch in the dead of night with way too much coffee.</p>
-                </div>
+    <!-- Footer with Personality & Easter Egg -->
+    <footer class="py-12 relative z-50 bg-black/80 text-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="footer-signature mb-4">
+                <span class="gradient-text text-2xl font-bold">[NAME]</span>
+                <span class="footer-avatar ml-3">🦄</span>
+            </div>
+            <div class="footer-copy mb-4">Built with too much coffee and not enough sleep. <span class="footer-easter-egg cursor-pointer" id="footer-easter-egg">(click me)</span></div>
+            <div class="footer-links flex justify-center gap-6 mb-4">
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="text-xs text-glow">&copy; 2024 [NAME]. All rights reserved.</div>
+        </div>
+        <!-- Easter Egg Modal -->
+        <div id="easter-egg-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+            <div class="bg-white rounded-2xl p-10 text-black text-center relative">
+                <button id="close-easter-egg" class="absolute top-2 right-2 text-2xl">&times;</button>
+                <div class="text-4xl mb-4">🎉 Surprise! 🎉</div>
+                <div class="mb-4">You found the hidden easter egg!<br>Keep exploring and breaking things. 🚀</div>
+                <div class="text-2xl">🦄✨💻</div>
             </div>
         </div>
     </footer>
