@@ -55,7 +55,7 @@ Replace all `[PLACEHOLDER]` values in `index.html`:
 
 #### Hero Section
 ```html
-[NAME] → Your Full Name
+Ibrahim Mohammed → Your Full Name
 [TITLE] → Your Professional Title
 [BRIEF_DESCRIPTION] → A compelling 2-3 sentence description
 [INITIALS] → Your initials (e.g., "JD" for John Doe)

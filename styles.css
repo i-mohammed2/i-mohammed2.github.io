@@ -2,17 +2,21 @@
 :root {
   --bg: #FFF8F0;
   --bg-secondary: #F5F0E8;
-  --accent: #FF5C8D;
-  --accent-secondary: #7FCDFF;
+  --accent: #7FCDFF;
+  --accent-secondary: #FFB6B9;
   --text: #292929;
   --text-secondary: #666666;
-  --border: rgba(255, 92, 141, 0.2);
-  --glow: rgba(255, 92, 141, 0.13);
-  --shadow: rgba(0, 0, 0, 0.08);
+  --border: rgba(127, 205, 255, 0.18);
+  --glow: rgba(127, 205, 255, 0.10);
+  --shadow: rgba(127, 205, 255, 0.08);
+  --malibu-pink: #FFB6B9;
+  --malibu-blue: #7FCDFF;
+  --malibu-lavender: #B5AEE4;
+  --malibu-peach: #FFE0C7;
 }
 
 body {
-  background: var(--bg);
+  background: linear-gradient(120deg, var(--bg) 80%, var(--malibu-peach) 120%);
   color: var(--text);
 }
 
@@ -295,23 +299,23 @@ body {
 }
 
 .hero-title {
-    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 30px var(--glow);
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    color: var(--text);
+    letter-spacing: -1px;
 }
 
-.hero-subtitle {
-    opacity: 0;
-    animation: fadeInUp 1s ease-out 0.3s forwards;
+.hero-greeting {
+    font-size: 1.3rem;
     color: var(--text-secondary);
+    margin-bottom: 1.2em;
 }
 
 .hero-description {
-    opacity: 0;
-    animation: fadeInUp 1s ease-out 0.6s forwards;
+    font-size: 1.1rem;
     color: var(--text-secondary);
+    margin-bottom: 2em;
 }
 
 .scroll-indicator {
@@ -731,10 +735,11 @@ html {
 
 /* Gradient Text */
 .gradient-text {
-    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    background: linear-gradient(90deg, var(--malibu-pink), var(--malibu-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-fill-color: transparent;
 }
 
 /* Pulse Animation */
@@ -1229,4 +1234,126 @@ footer {
 }
 #close-easter-egg:hover {
   color: var(--accent-secondary);
-} 
+}
+
+/* Malibu Pastel Blobs */
+.malibu-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+}
+.malibu-blob-1 {
+  width: 400px; height: 400px;
+  background: var(--malibu-blue);
+  top: -120px; left: -100px;
+}
+.malibu-blob-2 {
+  width: 300px; height: 300px;
+  background: var(--malibu-pink);
+  top: 200px; right: -80px;
+}
+.malibu-blob-3 {
+  width: 250px; height: 250px;
+  background: var(--malibu-lavender);
+  bottom: -100px; left: 40%;
+}
+
+/* Headings and Text */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Landing Page Softening */
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.2em;
+}
+
+/* Pastel Buttons */
+.btn-primary, .btn-secondary {
+  border-radius: 2em;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 0.8em 2.2em;
+  background: linear-gradient(90deg, var(--malibu-pink), var(--malibu-blue));
+  color: var(--text);
+  border: none;
+  box-shadow: 0 2px 12px var(--glow);
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+}
+.btn-primary:hover, .btn-secondary:hover {
+  background: linear-gradient(90deg, var(--malibu-blue), var(--malibu-pink));
+  color: var(--text);
+  box-shadow: 0 4px 24px var(--glow);
+}
+
+/* Image Placeholders */
+.profile-img-simple, .exp-logo-simple, .proj-img-simple {
+  background: var(--malibu-blue);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--malibu-pink);
+  box-shadow: 0 2px 16px var(--glow);
+  width: 100px; height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: var(--malibu-lavender);
+}
+.exp-logo-simple, .proj-img-simple {
+  width: 60px; height: 60px;
+  border-radius: 1.2em;
+  background: var(--malibu-peach);
+  border: 2px solid var(--malibu-blue);
+  color: var(--malibu-blue);
+  font-size: 1.5rem;
+}
+
+/* Stat Cards */
+.stat-card-simple {
+  background: var(--bg-secondary);
+  border-radius: 1.2em;
+  box-shadow: 0 2px 12px var(--glow);
+  padding: 1.2em 2.2em;
+  text-align: center;
+  min-width: 120px;
+}
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--malibu-pink);
+}
+.stat-label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Experience and Project Cards */
+.exp-card-simple, .proj-card-simple {
+  background: var(--bg-secondary);
+  border-radius: 1.2em;
+  box-shadow: 0 2px 12px var(--glow);
+  border: 1.5px solid var(--border);
+}
+
+/* Tech Tags */
+.tech-tag {
+  background: var(--malibu-lavender);
+  color: var(--text);
+  border-radius: 1em;
+  font-size: 0.95rem;
+  padding: 0.2em 1em;
+  margin-right: 0.2em;
+  margin-bottom: 0.2em;
+  font-weight: 500;
+  border: none;
+}
+
+/* Remove harsh shadows, strong colors, and heavy effects */
+/* ...rest of the file remains, but all text and backgrounds should now be soft, readable, and pastel... */ 
