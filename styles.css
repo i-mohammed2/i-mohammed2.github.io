@@ -1,14 +1,14 @@
 /* CSS Variables for Easy Theme Switching */
 :root {
-  --bg: #FFF8F0;
-  --bg-secondary: #F5F0E8;
+  --bg: #232946;
+  --bg-secondary: #2a2d3e;
   --accent: #7FCDFF;
   --accent-secondary: #FFB6B9;
-  --text: #292929;
-  --text-secondary: #666666;
+  --text: #F4F4F8;
+  --text-secondary: #B5B8C5;
   --border: rgba(127, 205, 255, 0.18);
   --glow: rgba(127, 205, 255, 0.10);
-  --shadow: rgba(127, 205, 255, 0.08);
+  --shadow: rgba(127, 205, 255, 0.10);
   --malibu-pink: #FFB6B9;
   --malibu-blue: #7FCDFF;
   --malibu-lavender: #B5AEE4;
@@ -16,7 +16,7 @@
 }
 
 body {
-  background: linear-gradient(120deg, var(--bg) 80%, var(--malibu-peach) 120%);
+  background: linear-gradient(120deg, var(--bg) 80%, var(--bg-secondary) 120%);
   color: var(--text);
 }
 
@@ -304,6 +304,7 @@ body {
     margin-bottom: 0.5em;
     color: var(--text);
     letter-spacing: -1px;
+    text-shadow: none;
 }
 
 .hero-greeting {
@@ -1265,6 +1266,7 @@ footer {
 h1, h2, h3, h4, h5, h6 {
   color: var(--text);
   font-weight: 700;
+  text-shadow: none;
 }
 
 /* Landing Page Softening */
@@ -1355,5 +1357,48 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
 }
 
+/* Now/Spotlight Area */
+.now-spotlight-card {
+  margin: 2.5em auto 0 auto;
+  max-width: 420px;
+  padding: 2em 2em 1.5em 2em;
+  background: linear-gradient(120deg, var(--bg-secondary) 80%, var(--malibu-lavender) 120%);
+  border-radius: 1.5em;
+  box-shadow: 0 2px 24px var(--glow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2em;
+  color: var(--text);
+  min-height: 220px;
+  transition: background 0.5s, box-shadow 0.5s;
+}
+.now-spotlight-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--malibu-blue);
+  margin-bottom: 0.5em;
+}
+.now-spotlight-media {
+  width: 120px; height: 120px;
+  border-radius: 1em;
+  background: var(--malibu-peach);
+  box-shadow: 0 2px 12px var(--glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0.7em;
+}
+.now-spotlight-media img, .now-spotlight-media iframe {
+  width: 100%; height: 100%; object-fit: cover; border-radius: 1em;
+}
+.now-spotlight-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
 /* Remove harsh shadows, strong colors, and heavy effects */
-/* ...rest of the file remains, but all text and backgrounds should now be soft, readable, and pastel... */ 
+/* ...rest of the file remains, but all text and backgrounds should now be soft, readable, and pastel on dark... */ 

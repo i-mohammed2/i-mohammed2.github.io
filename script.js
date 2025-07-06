@@ -846,4 +846,69 @@ if (footerEgg && eggModal && closeEgg) {
       eggModal.style.display = 'none';
     }
   });
-} 
+}
+
+// Now/Spotlight Area Cycling
+const nowSpotlightData = [
+  {
+    type: 'listening',
+    title: "What I'm Listening To",
+    media: `<img src='https://i.scdn.co/image/ab67616d0000b273e0e0e0e0e0e0e0e0e0e0e0e0' alt='Album Cover' />`,
+    text: `"Malibu Nights" by LANY`,
+    embed: `<iframe style='border-radius:12px' src='https://open.spotify.com/embed/track/2dLLR6qlu5UJ5gk0dKz0h3?utm_source=generator' width='100%' height='80' frameBorder='0' allowfullscreen='' allow='autoplay; clipboard-write; encrypted-media; picture-in-picture'></iframe>`
+  },
+  {
+    type: 'photos',
+    title: 'Life Lately',
+    media: `<div style='display:flex;gap:0.5em;'>
+      <img src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=80&h=80' alt='Beach' style='width:60px;height:60px;border-radius:0.7em;object-fit:cover;'>
+      <img src='https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=facearea&w=80&h=80' alt='Carnival' style='width:60px;height:60px;border-radius:0.7em;object-fit:cover;'>
+      <img src='https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=facearea&w=80&h=80' alt='Sunset' style='width:60px;height:60px;border-radius:0.7em;object-fit:cover;'>
+    </div>`,
+    text: 'Beach walks, carnival lights, and pastel sunsets.'
+  },
+  {
+    type: 'thought',
+    title: 'Recent Thought',
+    media: `<span style='font-size:2.5em;'>💭</span>`,
+    text: '“Simplicity is the ultimate sophistication.”'
+  }
+];
+
+let nowSpotlightIndex = 0;
+const nowSpotlight = document.getElementById('now-spotlight');
+
+function renderNowSpotlight(idx) {
+  if (!nowSpotlight) return;
+  const data = nowSpotlightData[idx];
+  nowSpotlight.innerHTML = `
+    <div class="now-spotlight-title">${data.title}</div>
+    <div class="now-spotlight-media">${data.media}${data.embed ? data.embed : ''}</div>
+    <div class="now-spotlight-text">${data.text}</div>
+  `;
+}
+
+function cycleNowSpotlight() {
+  nowSpotlightIndex = (nowSpotlightIndex + 1) % nowSpotlightData.length;
+  nowSpotlight.classList.add('fade-out');
+  setTimeout(() => {
+    renderNowSpotlight(nowSpotlightIndex);
+    nowSpotlight.classList.remove('fade-out');
+    nowSpotlight.classList.add('fade-in');
+    setTimeout(() => nowSpotlight.classList.remove('fade-in'), 400);
+  }, 400);
+}
+
+// Add fade-in/fade-out transitions
+const style = document.createElement('style');
+style.innerHTML = `
+  .fade-in { animation: fadeInNow 0.4s; }
+  .fade-out { animation: fadeOutNow 0.4s; }
+  @keyframes fadeInNow { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
+  @keyframes fadeOutNow { from { opacity: 1; } to { opacity: 0; } }
+`;
+document.head.appendChild(style);
+
+// Initial render and start cycling
+renderNowSpotlight(nowSpotlightIndex);
+setInterval(cycleNowSpotlight, 8000); 
