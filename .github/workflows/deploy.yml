@@ -47,6 +47,12 @@ jobs:
       - name: Build with Next.js
         run: npm run build
         
+      - name: Copy index.html fallback
+        run: |
+          if [ ! -f ./out/index.html ]; then
+            cp ./index.html ./out/
+          fi
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

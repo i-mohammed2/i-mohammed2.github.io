@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahim Mohammed - Software Engineer & Computer Science Student</title>
+    <meta name="description" content="Explore Ibrahim's journey in software engineering, from computer science studies at University of Florida to internships at Amazon, PayPal, and research at McKnight Brain Institute">
+    <meta name="author" content="Ibrahim Mohammed">
+    <meta property="og:title" content="Ibrahim Mohammed - Software Engineer & Computer Science Student">
+    <meta property="og:description" content="Interactive 3D portfolio showcasing software engineering journey and projects">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://i-mohammed2.github.io">
+    
+    <!-- Auto-refresh to check for deployed app -->
+    <meta http-equiv="refresh" content="30">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(249, 115, 22, 0.1);
+            border-top: 3px solid #f97316;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 2rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #f97316, #fb923c, #fdba74);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.2); }
+        }
+        
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .status {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #fbbf24;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem 0;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(249, 115, 22, 0.4);
+        }
+        
+        .info-card h3 {
+            color: #f97316;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .contact-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: rgba(249, 115, 22, 0.1);
+            border: 1px solid #f97316;
+            color: #f97316;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .contact-link:hover {
+            background: #f97316;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .deployment-info {
+            margin-top: 3rem;
+            padding: 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            max-width: 600px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation" id="stars"></div>
+    
+    <div class="container">
+        <div class="loader"></div>
+        <h1 class="title">Ibrahim Mohammed</h1>
+        <p class="subtitle">Software Engineer & Computer Science Student</p>
+        <p class="status">🚀 Loading Interactive 3D Portfolio...</p>
+        
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🎓 Education</h3>
+                <p>University of Florida<br>Computer Science<br>GPA: 3.6/4.0</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>💼 Experience</h3>
+                <p>Amazon Aurora<br>PayPal<br>McKnight Brain Institute<br>Smart Systems Lab</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>🛠️ Technologies</h3>
+                <p>Next.js, Three.js<br>Machine Learning<br>Database Management<br>Software Development</p>
+            </div>
+        </div>
+        
+        <div class="contact-links">
+            <a href="mailto:ibrahim.mohammed@ufl.edu" class="contact-link">📧 Email</a>
+            <a href="https://linkedin.com/in/ibrahim-mohammed-ufl" target="_blank" class="contact-link">💼 LinkedIn</a>
+            <a href="https://github.com/i-mohammed2" target="_blank" class="contact-link">💻 GitHub</a>
+        </div>
+        
+        <div class="deployment-info">
+            <p><strong>🔄 Deployment in Progress</strong></p>
+            <p>The interactive 3D portfolio is being built and deployed via GitHub Actions. This page will automatically refresh every 30 seconds to check for the completed deployment.</p>
+            <p>Expected deployment time: 2-5 minutes</p>
+        </div>
+    </div>
+
+    <script>
+        // Create animated star field
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 100;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Check if Next.js app is available
+        function checkForApp() {
+            // Try to detect Next.js app elements or files
+            Promise.all([
+                fetch('./_next/static/chunks/').catch(() => null),
+                fetch('./out/index.html').catch(() => null),
+                fetch('./_next/').catch(() => null)
+            ]).then(responses => {
+                const hasNextApp = responses.some(response => response && response.ok);
+                if (hasNextApp) {
+                    window.location.reload();
+                }
+            });
+        }
+        
+        // Initialize
+        createStars();
+        
+        // Check for app availability
+        setTimeout(checkForApp, 5000);
+        setInterval(checkForApp, 10000);
+        
+        // Update status message over time
+        let statusMessages = [
+            "🚀 Loading Interactive 3D Portfolio...",
+            "⚡ Building Next.js Application...",
+            "🌟 Preparing 3D Scene Components...",
+            "🔄 Finalizing Deployment...",
+            "🎯 Almost Ready..."
+        ];
+        
+        let messageIndex = 0;
+        setInterval(() => {
+            const statusElement = document.querySelector('.status');
+            if (statusElement && messageIndex < statusMessages.length - 1) {
+                messageIndex++;
+                statusElement.textContent = statusMessages[messageIndex];
+            }
+        }, 15000);
+    </script>
+</body>
+</html>
