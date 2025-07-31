@@ -4,10 +4,15 @@ import { useRef, useMemo, useState } from "react"
 import { useFrame } from "@react-three/fiber"
 import * as THREE from "three"
 
-export function SimpleEarth({ isActive, scrollProgress }) {
-  const globeRef = useRef()
-  const atmosphereRef = useRef()
-  const arcsGroupRef = useRef()
+interface SimpleEarthProps {
+  isActive: boolean
+  scrollProgress: number
+}
+
+export function SimpleEarth({ isActive, scrollProgress }: SimpleEarthProps) {
+  const globeRef = useRef<THREE.Mesh>(null)
+  const atmosphereRef = useRef<THREE.Mesh>(null)
+  const arcsGroupRef = useRef<THREE.Group>(null)
   const [isHovered, setIsHovered] = useState(false)
 
   const randomLinks = [

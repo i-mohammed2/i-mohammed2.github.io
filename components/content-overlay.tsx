@@ -6,7 +6,11 @@ import { ExperienceSection } from "./sections/experience-section"
 import { ProjectsSection } from "./sections/projects-section"
 import { ContactSection } from "./sections/contact-section"
 
-export function ContentOverlay({ scrollProgress }) {
+interface ContentOverlayProps {
+  scrollProgress: number
+}
+
+export function ContentOverlay({ scrollProgress }: ContentOverlayProps) {
   // Adjusted for 6x height
   const activeSection = useMemo(() => {
     if (scrollProgress < 0.2) return "intro"
@@ -16,7 +20,7 @@ export function ContentOverlay({ scrollProgress }) {
     return "contact"
   }, [scrollProgress])
 
-  const getOpacity = (section) => {
+  const getOpacity = (section: string): number => {
     return activeSection === section ? 1 : 0
   }
 

@@ -1,6 +1,12 @@
 "use client"
 
-export function ScrollProgress({ progress }) {
+import { memo } from "react"
+
+interface ScrollProgressProps {
+  progress: number
+}
+
+export const ScrollProgress = memo(function ScrollProgress({ progress }: ScrollProgressProps) {
   return (
     <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-10">
       <div className="h-32 w-1 bg-slate-700 rounded-full relative">
@@ -28,4 +34,4 @@ export function ScrollProgress({ progress }) {
       </div>
     </div>
   )
-}
+})

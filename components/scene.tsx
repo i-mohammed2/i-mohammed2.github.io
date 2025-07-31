@@ -8,8 +8,12 @@ import { PremiumWireframePlanet } from "./premium-wireframe-planet"
 import { PremiumStarfield } from "./premium-starfield"
 import * as THREE from "three"
 
-export function Scene({ scrollProgress }) {
-  const groupRef = useRef()
+interface SceneProps {
+  scrollProgress: number
+}
+
+export function Scene({ scrollProgress }: SceneProps) {
+  const groupRef = useRef<THREE.Group>(null)
   const { camera } = useThree()
 
   // Smooth camera movement

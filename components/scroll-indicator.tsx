@@ -2,7 +2,11 @@
 
 import { ChevronDown } from "lucide-react"
 
-export function ScrollIndicator({ scrollProgress }) {
+interface ScrollIndicatorProps {
+  scrollProgress: number
+}
+
+export function ScrollIndicator({ scrollProgress }: ScrollIndicatorProps) {
   const opacity = scrollProgress < 0.05 ? 1 : 0
 
   if (opacity <= 0) return null
