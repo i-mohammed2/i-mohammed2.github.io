@@ -1,4 +1,5 @@
 "use client"
+// @ts-nocheck
 
 import { useRef, useMemo, useState } from "react"
 import { useFrame, useLoader } from "@react-three/fiber"

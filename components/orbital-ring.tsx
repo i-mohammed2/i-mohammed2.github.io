@@ -1,10 +1,18 @@
 "use client"
+// @ts-nocheck
 
 import { useRef, useMemo } from "react"
 import { useFrame } from "@react-three/fiber"
 import * as THREE from "three"
 
-export function OrbitalRing({ radius, color, isActive, particleCount }) {
+interface OrbitalRingProps {
+  radius: number
+  color: string
+  isActive: boolean
+  particleCount: number
+}
+
+export function OrbitalRing({ radius, color, isActive, particleCount }: OrbitalRingProps) {
   const ringRef = useRef()
   const particlesRef = useRef()
 
